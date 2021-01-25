@@ -1,0 +1,27 @@
+{
+    "name": "comment",
+    "version": "0.0.1",
+    "description": "Ebuild project",
+    "main": "comment.min.js",
+    "scripts": {
+        "dev": "webpack-dev-server --open --config webpack-config/dev.js",
+        "start": "npm run dev",
+        "build": "webpack --config webpack-config/build.js",
+        "publish": "npm publish npm",
+        "lint": "eslint src --ext js"
+    },
+    "unpkg": "comment.min.js",
+    "jsdelivr": "comment.min.js",
+    "typings": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "keywords": [],
+    "author": "author",
+    "license": "MIT",
+    "bugs": {
+        "url": ""
+    },
+    "homepage": ""
+}
