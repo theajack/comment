@@ -1,5 +1,3 @@
-import initComment from ".";
-
 interface InsertComment {
     (data: {
         name: string;

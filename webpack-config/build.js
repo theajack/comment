@@ -7,7 +7,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
     mode: 'production',
-    entry: path.resolve('./', 'src/index.js'),
+    entry: ['@babel/polyfill', path.resolve('./', 'src/index.js')],
     output: {
         path: path.resolve('./', 'npm'),
         filename: 'comment.min.js',
