@@ -1,36 +1,40 @@
-### This is a project build with [EBuild-Cli](https://github.com/theajack/ebuild-cli)
+## tc-comment
 
-### Install dependencies
+A comment component that supports markdowm and emoji
 
-```
-npm install
-```
+```js
+import initComment from 'tc-comment';
+initComment({
+    el: '#app',
+    services: { // Please inject two requests yourself, one to insert comments and one to get comments
+        insertComment(){
 
-use taobao repository
+        },
+        getComment(){
 
-```
-npm install --registry https://registry.npm.taobao.org
-```
-
-### Init git repository
-
-```
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin {Your remote git repository address}
-git push -u origin master
+        }
+    }
+});
 ```
 
-### Commond
+insertComment and getComment ts statement
 
+```ts
+interface InsertComment {
+    (data: {
+        name: string;
+        contact: string;
+        content: string;
+    }): Promise<boolean>;
+}
+
+interface GetComment {
+    (query: {
+        index?: number;
+        size?: number;
+        all?: number;
+        condition?: object;
+    }): Promise<boolean>;
+}
 ```
-npm run dev
-npm run build
-npm run publish
-npm run lint
-```
 
-### Vscode plugin
-
-Install 'ESLint' plugin

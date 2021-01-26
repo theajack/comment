@@ -1,7 +1,7 @@
 {
-    "name": "comment",
-    "version": "0.0.1",
-    "description": "Ebuild project",
+    "name": "tc-comment",
+    "version": "0.0.2",
+    "description": "A comment component",
     "main": "comment.min.js",
     "scripts": {
         "dev": "webpack-dev-server --open --config webpack-config/dev.js",

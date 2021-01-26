@@ -1,7 +1,7 @@
 const path = require('path');
 require('../helper/copy-to-npm');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 分离css
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 分离css
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
@@ -32,10 +32,12 @@ module.exports = {
             }
         }, {
             test: /\.css$/,
-            use: [MiniCssExtractPlugin.loader, 'css-loader'],
+            use: ['style-loader', 'css-loader'],
+            // use: ['css-loader'],
         }, {
             test: /\.less$/,
-            use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
+            use: ['style-loader', 'css-loader', 'less-loader'],
+            // use: ['css-loader', 'less-loader'],
         }, {
             test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)(\?.*)?$/,
             loader: 'url-loader',
@@ -57,13 +59,11 @@ module.exports = {
     },
     plugins: [
         new VueLoaderPlugin(),
-        new MiniCssExtractPlugin({
-            filename: 'assets/css/[name].min.css',
-        }),
-        new HtmlWebpackPlugin({
-            template: './helper/index.tpl.html',
-            filename: 'index.html',
-        }),
+        // new MiniCssExtractPlugin(),
+        // new HtmlWebpackPlugin({
+        //     template: './helper/index.tpl.html',
+        //     filename: 'index.html',
+        // }),
         new OptimizeCssAssetsPlugin()
     ]
 };

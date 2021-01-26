@@ -1,5 +1,15 @@
 
 .comment-editor{
+    font-size: 14px;
+    resize: vertical;
+    width: 100%;
+    min-height: 100px;
+    border: none;
+    outline: none;
+    padding: 5px;
+    &:focus{
+        background-color: #f9f9f9;
+    }
     &::selection{
         background-color: #aaa;
         color:#fff;
@@ -7,5 +17,24 @@
     &::-moz-selection{
         background-color: #aaa;
         color:#fff;
+    }
+    &::-webkit-scrollbar {
+        width: 5px;
+        cursor: pointer;
+        height: 5px;
+    }
+    &::-webkit-scrollbar-button {
+        display: none;
+    }
+    &::-webkit-scrollbar-track {
+        display: none;
+    }
+    &::-webkit-scrollbar-track-piece {
+        background-color:#ddd;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color:#ccc;
+        border-radius:5px;
+        cursor: pointer;
     }
 }

@@ -1,20 +1,13 @@
 <template>
     <textarea
         class='comment-editor'
-        @input='input'
+        @input='oninput'
         ref='textArea'
         :value='content' />
 </template>
 <script>
-    import {
-        getCursorIndex,
-        getCursorLineIndex,
-        getCursorLineNumber,
-        getSelectionText,
-        initTabIndent,
-        replaceSelectionText
-    } from './editor.js';
-
+    import {Editor} from './editor.js';
+    const editor = new Editor();
     export default {
         name: 'editor',
         props: {
@@ -25,25 +18,19 @@
             }
         },
         mounted () {
-            let el = this.$refs.textArea;
-            window.el = this.$refs.textArea;
-            initTabIndent({el: this.$refs.textArea});
-            setTimeout(() => {
-                replaceSelectionText({el, text: 'xxx'});
-            }, 4000);
-            // setInterval(() => {
-            //     console.log('index', getCursorIndex(this.$refs.textArea));
-            //     console.log('line', getCursorLineNumber(this.$refs.textArea));
-            //     console.log('line index', getCursorLineIndex(this.$refs.textArea));
-            //     console.log('select text', getSelectText());
-            // }, 1000);
+            editor.injectDOM(this.$refs.textArea);
+            editor.initTabIndent();
         },
         methods: {
-            input () {
+            oninput () {
                 this.$emit('update:content', this.$el.value);
             },
-            insertText () {
-                
+            insertText (text, step) {
+                editor.insertText(text);
+                if (typeof step === 'number') {
+                    editor.foucusOnCursorStep(step - text.length);
+                }
+                this.oninput();
             }
         }
     };

@@ -1,4 +1,67 @@
 
 .comment-item{
-
+    margin: 10px 0;
+    border-bottom: 1px dashed #ccc;
+    padding: 10px 0;
+    .comment-item-img{
+        display: inline-block;
+        color: #888;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        visibility: m;
+        line-height: 30px;
+        background-color: #eee;
+        border-radius: 50%;
+        font-size: 21px;
+    }
+    .comment-item-name{
+        color: #666;
+        font-size: 18px;
+        margin-left: 10px;
+    }
+    .comment-item-date{
+        color: #aaa;
+        float: right;
+        margin-top: 5px;
+    }
+    .comment-item-content{
+        font-size: 16px;
+        margin-top: 10px;
+        background-color: #fafafa;
+        padding: 10px;
+        max-height: 300px;
+        overflow-y: auto;
+        &:focus{
+            background-color: #f9f9f9;
+        }
+        &::selection{
+            background-color: #aaa;
+            color:#fff;
+        }
+        &::-moz-selection{
+            background-color: #aaa;
+            color:#fff;
+        }
+        &::-webkit-scrollbar {
+            width: 5px;
+            cursor: pointer;
+            height: 5px;
+        }
+        &::-webkit-scrollbar-button {
+            display: none;
+        }
+        &::-webkit-scrollbar-track {
+            display: none;
+        }
+        &::-webkit-scrollbar-track-piece {
+            background-color:#ddd;
+        }
+        &::-webkit-scrollbar-thumb{
+            background-color:#ccc;
+            border-radius:5px;
+            cursor: pointer;
+        }
+    }
 }

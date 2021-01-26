@@ -1,14 +1,15 @@
 <template>
     <div class='comment-submit'>
         <div class='comment-s-header'>
-            <input class='comment-s-input' type='text' placeholder='称呼' v-bind='name'>
-            <input class='comment-s-input' type='text' placeholder='联系方式' v-bind='contact'>
+            <input class='comment-s-input' type='text' placeholder='称呼' v-model='name'>
+            <input class='comment-s-input' type='text' placeholder='联系方式' v-model='contact'>
         </div>
         <text-area @onsubmit='onsubmit'></text-area>
     </div>
 </template>
 <script>
     import TextArea from './text-area/text-area.vue';
+    import {writeUserInfo, readUserInfo} from '../utils/userInfo';
     export default {
         name: 'comment-submit',
         components: {TextArea},
@@ -19,9 +20,23 @@
                 content: ''
             };
         },
+        mounted () {
+            let {name, contact} = readUserInfo();
+            this.name = name;
+            this.contact = contact;
+        },
         methods: {
-            onsubmit (html) {
-                console.log(html);
+            onsubmit ({content, success}) {
+                writeUserInfo({
+                    name: this.name,
+                    contact: this.contact,
+                });
+                this.$emit('onsubmit', {
+                    name: this.name,
+                    contact: this.contact,
+                    content,
+                    success
+                });
             }
         }
     };

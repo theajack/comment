@@ -1,48 +1,63 @@
 <template>
-    <div>
+    <div class='comment-textarea-w'>
         <editor :content.sync='content' ref='editor'/>
         <div class='comment-f-w'>
-            <i class='ei-smile' title='插入表情'></i>
-            <i class='ei-code' title='插入代码片段'></i>
-            <i class='ei-link' title='插入链接' @click='submit'></i>
-            <i class='ei-window' title='预览markdown' @click='togglePreview'></i>
-            <i class='ei-comment-alt' title='提交评论' @click='submit'></i>
+            <i class='ei-smile comment-f-b' title='插入表情' @click='toggleEmoji'></i>
+            <i class='ei-code comment-f-b' title='插入代码片段' @click='insertCode'></i>
+            <i class='ei-link comment-f-b' title='插入链接' @click='insertLink'></i>
+            <i class='ei-window comment-f-b' title='预览markdown' @click='togglePreview'></i>
+            <span class='comment-f-sb' @click='submit'>
+                <i class='ei-comment-alt' title='提交评论'></i>
+                <span>提交</span>
+            </span>
         </div>
-        <div class='comment-preview' v-show='showPreview'>
-            {{mdHtml}}
-        </div>
+        <emoji :visible='showEmoji' @insertEmoji='insertEmoji' />
+        <md-preview ref='preview' :content='content' :showPreview='showPreview'/>
     </div>
 </template>
 <script>
     import Editor from '../editor/editor.vue';
-    import showDown from 'showdown';
-    const converter = new showDown.Converter();
+    import Emoji from '../emoji/emoji.vue';
+    import MdPreview from '../md-preview/md-preview.vue';
     export default {
         name: 'text-area',
-        components: {Editor},
+        components: {Editor, Emoji, MdPreview},
         data () {
             return {
-                mdHtml: '',
                 content: '',
                 showPreview: false,
+                showEmoji: false,
             };
         },
-        mounted () {
-            window._v = this;
+        watch: {
+            content () {
+                if (this.showPreview) {
+                    this.preview();
+                }
+            }
         },
+
         methods: {
-            insertLink () {
-                this.$editor.insertText('');
+            preview () {
+                this.$refs.preview.preview();
             },
-            insertEmoji () {
-                this.$editor.insertText('');
+            insertLink () {
+                this.$refs.editor.insertText('[]()', 1);
+            },
+            insertEmoji (text) {
+                this.$refs.editor.insertText(text, text.length);
             },
             insertCode () {
-                this.$editor.insertText('');
+                this.$refs.editor.insertText('```js\n\n```', 6);
             },
             submit () {
                 this.preview();
-                this.$emit('onsubmit', this.mdHtml);
+                this.$emit('onsubmit', {
+                    content: this.content,
+                    success: () => {
+                        this.content = '';
+                    }
+                });
             },
             togglePreview () {
                 if (!this.showPreview) {
@@ -50,12 +65,8 @@
                 }
                 this.showPreview = !this.showPreview;
             },
-            preview () {
-                if (this.content) {
-                    this.mdHtml = converter.makeHtml(this.content);
-                } else {
-                    this.mdHtml = '';
-                }
+            toggleEmoji () {
+                this.showEmoji = !this.showEmoji;
             }
         }
     };

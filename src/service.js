@@ -21,7 +21,7 @@ async function insertComment ({
     const res = await axios({
         method: 'post',
         baseURL: getBaseURL(),
-        url: '/api/comment/cnchar/insert',
+        url: '/api/comment/cnchar',
         responseType: 'json',
         data: {
             name,
