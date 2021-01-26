@@ -1,34 +1,29 @@
 import Vue from 'vue';
-import App from './App.vue';
-import axios from 'axios';
-window.axios = axios;
+import Comment from './components/comment.vue';
+import {injectService} from './service';
+import './styles/index.less';
+import 'easy-icon/offline';
 
-// axios({
-//     method: 'post',
-//     url: '/api/comment/cnchar/insert',
-//     responseType: 'json',
-//     data: {
-//         name: 'string',
-//         contact: 'string',
-//         content: 'string',
-//     }
-// }).then(res => {
-//     console.log(res.data);
-// });
+export default function initComment ({
+    el,
+    services,
+}) {
+    if (services) {
+        injectService(services);
+    }
+    let container = document.createElement('div');
+    if (el instanceof HTMLElement) {
 
-// axios({
-//     method: 'get',
-//     url: '/api/comment/cnchar',
-//     responseType: 'json',
-//     params: {
-//         // index: 1,
-//         // size: 2
-//     }
-// }).then(res => {
-//     console.log(res.data);
-// });
-export default function initComment (el) {
+    } else if (typeof el === 'string') {
+        el = document.querySelector(el);
+        if (!el) {
+            el = document.body;
+        }
+    } else {
+        el = document.body;
+    }
+    el.appendChild(container);
     new Vue({
-        render: h => h(App)
-    }).$mount(el);
+        render: h => h(Comment)
+    }).$mount(container);
 }

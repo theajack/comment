@@ -5,7 +5,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
-    entry: path.resolve('./', 'dev/main.js'),
+    entry: ['@babel/polyfill', path.resolve('./', 'dev/main.js')],
     output: {
         path: path.resolve('./', 'public'),
         filename: 'bundle.js'
