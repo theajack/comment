@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {showErrorTip, showSuccessTip} from './components/tip/tip';
 
 export let services = {
     insertComment,
@@ -29,7 +30,13 @@ async function insertComment ({
             content
         }
     });
-    return (res.data.code === 0);
+    let success = (res.data.code === 0);
+    if (success) {
+        showSuccessTip('提交评论成功');
+    } else {
+        showErrorTip('提交评论失败');
+    }
+    return success;
 }
 async function getComment ({
     index = 1,
@@ -50,7 +57,11 @@ async function getComment ({
         }
     });
     let data = res.data;
-    return (data.code === 0) ? data.data : [];
+    let success = (data.code === 0);
+    if (!success) {
+        showErrorTip('拉去列表失败');
+    }
+    return success ? data.data : [];
 }
 const allowedHost = [
     'www.shiyix.cn',

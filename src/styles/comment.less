@@ -6,5 +6,33 @@
     margin-top: 10px;
     text-align: center;
     color:#888;
-    cursor: pointer;
+    .comment-show-more{
+        cursor: pointer;
+    }
+}
+
+.comment-tip{
+    position: relative;
+    text-align: center;
+    height: 20px;
+    margin-top: 5px;
+    .comment-content{
+        color: #44b;
+        &.comment-tip-error{
+            color: #d44;
+        }
+        &.comment-tip-success{
+            color: #2b2;;
+        }
+        &.comment-tip-warning{
+            color: #ff9400;;
+        }
+    }
+    .comment-logo{
+        position: absolute;
+        right: 0;
+        i{
+            margin-left: 5px;
+        }
+    }
 }

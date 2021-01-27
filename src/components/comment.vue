@@ -1,18 +1,22 @@
 <template>
     <div class='comment-w'>
         <comment-submit @onsubmit='onsubmit'/>
+        <tip />
         <div class='comment-list' v-for='(comment, index) in list' :key='index'>
             <comment-item :comment='comment' />
         </div>
         <div class='comment-info'>
-            <div v-if='lock' class='comment-loading' @click='showMore'>
+            <div v-if='status === "loading"' class='comment-loading' @click='showMore'>
                 正在加载 <i class='ei-spinner-snake ei-spin'></i>
             </div>
-            <div v-if='showMoreBtn' class='comment-show-more' @click='showMore'>
+            <div v-else-if='status === "more"' class='comment-show-more' @click='showMore'>
                 查看更多
             </div>
+            <div v-else-if='status === "nomore"' class='comment-no-more'>
+                已经到底了
+            </div>
             <div v-else class='comment-no-more'>
-                --已经到底了--
+                暂无评论-快来成为第一个人吧~
             </div>
         </div>
     </div>
@@ -20,13 +24,15 @@
 <script>
     import CommentItem from './comment-item.vue';
     import CommentSubmit from './submit.vue';
+    import Tip from './tip/tip.vue';
     import {services} from '../service';
     import {timeToTimeStr} from '../utils/time';
     export default {
         name: 'comment',
-        components: {CommentItem, CommentSubmit},
+        components: {CommentItem, CommentSubmit, Tip},
         data () {
             return {
+                status: 'none',
                 list: [],
                 showMoreBtn: true,
                 index: 1,
@@ -51,26 +57,32 @@
                 });
                 if (bool) {
                     success();
-                    this.showMoreBtn = true;
+                    this.status = 'loading';
                     this.index = 0;
                     this.list = [];
                     this.showMore();
                 }
             },
             async showMore () {
-                if (!this.showMoreBtn || this.lock) {return;}
+                if (!this.status === 'nomore' || this.lock) {return;}
                 this.lock = true;
+                this.status = 'loading';
                 let data = await services.getComment({
                     index: this.index,
                     size: this.size
                 });
                 if (data.length < this.size) {
-                    this.showMoreBtn = false;
+                    this.status = 'nomore';
+                } else {
+                    this.status = 'more';
                 }
                 data.forEach(item => {
                     item.dateStr = timeToTimeStr(item.createTime);
                 });
                 this.list.push(...data);
+                if (this.list.length === 0) {
+                    this.status = 'none';
+                }
                 this.index ++;
                 this.lock = false;
             }

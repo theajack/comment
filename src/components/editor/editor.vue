@@ -3,6 +3,7 @@
         class='comment-editor'
         @input='oninput'
         ref='textArea'
+        placeholder='快来留言吧，支持markdown哦~'
         :value='content' />
 </template>
 <script>
