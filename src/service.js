@@ -75,7 +75,7 @@ const allowedHost = [
 function getBaseURL () {
     let host = location.host;
     if (allowedHost.indexOf(host) !== -1) {
-        return 'https://theajack.gitee.io';
+        return 'https://www.shiyix.cn';
     }
     return '';
 }
