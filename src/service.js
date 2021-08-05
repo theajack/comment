@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {showErrorTip, showSuccessTip} from './components/tip/tip';
+import {getBaseURL} from './custom-host';
 
 export let services = {
     insertComment,
@@ -62,20 +63,4 @@ async function getComment ({
         showErrorTip('拉去列表失败');
     }
     return success ? data.data : [];
-}
-const allowedHost = [
-    'www.shiyix.cn',
-    'shiyix.cn',
-    'theajack.com',
-    'www.theajack.com',
-    'theajack.gitee.io',
-    'theajack.github.io',
-];
-
-function getBaseURL () {
-    let host = location.host;
-    if (allowedHost.indexOf(host) !== -1) {
-        return 'https://www.shiyix.cn';
-    }
-    return '';
 }

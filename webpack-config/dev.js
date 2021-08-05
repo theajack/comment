@@ -18,7 +18,7 @@ module.exports = {
         host: 'localhost', // '0.0.0.0' //
         proxy: {
             '/api': {
-                target: 'https://shiyix.cn/',
+                target: 'https://www.shiyix.cn/',
                 // pathRewrite: {'^/remote': ''},
                 changeOrigin: true,
                 secure: false

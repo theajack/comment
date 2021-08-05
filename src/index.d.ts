@@ -10,9 +10,11 @@ interface GetComment {
     (query: {
         index?: number;
         size?: number;
-        all?: number;
-        condition?: object;
-    }): Promise<boolean>;
+    }): Promise<Array<{
+        createTime: number;
+        name: string;
+        content: string;
+    }>>;
 }
 
 interface IInitComment {
@@ -21,7 +23,12 @@ interface IInitComment {
         services?: {
             insertComment: InsertComment;
             getComment: GetComment;
-        }
+        };
+        urlConfig?: {
+            host: string;
+            get?: string;
+            insert?: string;
+        };
     }):void;
 }
 
