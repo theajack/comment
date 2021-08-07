@@ -2,6 +2,8 @@
 
 A comment component that supports markdowm and emoji
 
+And you can use this with [vuepress-plugin-tc-comment](https://github.com/theajack/vuepress-plugin-tc-comment)
+
 ### 1. Use custom services
 
 ```js
