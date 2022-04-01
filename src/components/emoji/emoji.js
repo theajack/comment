@@ -27,13 +27,13 @@ function initEmoji () {
             start = false;
         }
     }
-    function renderEmoji (content) {
+    function renderEmoji (content, initEmoji = false) {
         content = emoji.replace_colons(content);
-        if (content.indexOf('</span>') === -1) { // ! 处理 mac os 中 返回的是emoji表情
+        if (initEmoji && content.indexOf('</span>') === -1) { // ! 处理 mac os 中 返回的是emoji表情
             content = `<span class='mac-emoji'>${content.replace(/ /g, '</span><span class="mac-emoji">')}</span>`;
         }
         return content;
     }
-    const emojiHtml = renderEmoji(emojiNames.join(' '));
+    const emojiHtml = renderEmoji(emojiNames.join(' '), true);
     return {emoji, emojiNames, emojiHtml, renderEmoji};
 }

@@ -5,7 +5,7 @@
             <span class='comment-item-name'>{{comment.name || '匿名用户'}}</span>
             <span class='comment-item-date'>{{comment.dateStr}}</span>
         </div>
-        <md-preview class='comment-item-content' ref='preview' :content='comment.content' :autoPreview='true'/>
+        <md-preview class='comment-item-content' :content='comment.content' :autoPreview='true'/>
         <reply v-if='!isReply' @onaddreply='onaddreply' :commentId='comment.id'/>
     </div>
 </template>

@@ -2,8 +2,8 @@
 let toastEl;
 let timer;
 
-export function showTip ({text, time = 2000, type}) {
-    console.log(text, time, type);
+export function showTip ({text, time = 2000}) {
+    // console.log(text, time, type);
 
     if (!toastEl) {
         toastEl = document.createElement('div');

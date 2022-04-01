@@ -2,34 +2,38 @@
     <textarea
         class='comment-editor'
         @input='oninput'
-        ref='textArea'
+        ref='textAraea'
         placeholder='快来留言吧，支持markdown哦~'
         :value='content' />
 </template>
 <script>
     import {Editor} from './editor.js';
-    const editor = new Editor();
     export default {
         name: 'editor',
         props: {
             content: {
                 type: String,
                 require: false,
-                default: ''
+                default: '',
             }
         },
+        data () {
+            return {
+                editor: null,
+            };
+        },
         mounted () {
-            editor.injectDOM(this.$refs.textArea);
-            editor.initTabIndent();
+            this.editor = new Editor({el: this.$refs.textAraea});
+            this.editor.initTabIndent();
         },
         methods: {
             oninput () {
                 this.$emit('update:content', this.$el.value);
             },
             insertText (text, step) {
-                editor.insertText(text);
+                this.editor.insertText(text);
                 if (typeof step === 'number') {
-                    editor.foucusOnCursorStep(step - text.length);
+                    this.editor.foucusOnCursorStep(step - text.length);
                 }
                 this.oninput();
             }
