@@ -68,7 +68,7 @@ initComment({
         host:'www.example.com',
         get:'/api/comment/get',
         insert:'/api/comment/insert',
-        reply:'/api/comment/reply'
+        reply:'/api/reply/insert'
     }
 });
 ```
@@ -111,7 +111,7 @@ CommentObject
 
 3. reply request for uploading the reply
 
-- path: urlConfig.insert default value is '/api/comment/reply'
+- path: urlConfig.insert default value is '/api/reply/insert'
 - method: post
 - Parameters: name, contact, content, commentId
 - Return: {data: {code: 0}} 0 means success

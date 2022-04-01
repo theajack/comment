@@ -66,7 +66,7 @@ initComment({
         host:'www.example.com',
         get:'/api/comment/get',
         insert:'/api/comment/insert',
-        reply:'/api/comment/reply'
+        reply:'/api/reply/insert'
     }
 });
 ```
@@ -109,7 +109,7 @@ CommentObject
 
 3. reply 请求 用于上传回复
 
-- path: urlConfig.insert 默认值为 '/api/comment/reply'
+- path: urlConfig.insert 默认值为 '/api/reply/insert'
 - method: post
 - 参数: name, contact, content, commentId
 - 返回: {data: {code: 0}} 0表示成功

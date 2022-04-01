@@ -2,7 +2,7 @@
  * @Author: theajack
  * @Date: 2021-08-05 21:41:24
  * @LastEditor: theajack
- * @LastEditTime: 2022-04-01 16:14:08
+ * @LastEditTime: 2022-04-01 16:29:41
  * @Description: Coding something
  * @FilePath: /comment/src/custom-host.js
  */
@@ -10,7 +10,7 @@
 let customHost = '';
 let getUrl = '/api/comment/get';
 let insertUrl = '/api/comment/insert';
-let replyUrl = '/api/comment/reply';
+let replyUrl = '/api/reply/insert';
 
 export function setCustomHost (urlConfig) {
     if (typeof urlConfig === 'object') {
@@ -21,22 +21,14 @@ export function setCustomHost (urlConfig) {
             }
             customHost = host;
 
-            // 配置了host 就更改默认的path
-            getUrl = '/api/comment/get';
-            insertUrl = '/api/comment/insert';
-            replyUrl = '/api/comment/reply';
             if (get) {
                 getUrl = get;
             }
             if (insert) {
                 insertUrl = insert;
-            } else if (get) {
-                insertUrl = get;
             }
             if (reply) {
                 replyUrl = reply;
-            } else if (get) {
-                replyUrl = get;
             }
         }
     }

@@ -1,6 +1,6 @@
 {
     "name": "tc-comment",
-    "version": "0.0.10",
+    "version": "0.0.11",
     "description": "A comment component",
     "main": "comment.min.js",
     "scripts": {
