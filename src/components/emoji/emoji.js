@@ -11,7 +11,6 @@ function initEmoji () {
     emoji.img_sets.twitter.path = CDN_PATH + 'img-twitter-64/';
     emoji.img_sets.facebook.path = CDN_PATH + 'img-facebook-64/';
     emoji.img_sets.messenger.path = CDN_PATH + 'img-messenger-64/';
-
     let emojiNames = [];
     let start = false;
     let extract = ['263a-fe0f'];
@@ -29,7 +28,11 @@ function initEmoji () {
         }
     }
     function renderEmoji (content) {
-        return emoji.replace_colons(content);
+        content = emoji.replace_colons(content);
+        if (content.indexOf('</span>') === -1) { // ! 处理 mac os 中 返回的是emoji表情
+            content = `<span class='mac-emoji'>${content.replace(/ /g, '</span><span class="mac-emoji">')}</span>`;
+        }
+        return content;
     }
     const emojiHtml = renderEmoji(emojiNames.join(' '));
     return {emoji, emojiNames, emojiHtml, renderEmoji};

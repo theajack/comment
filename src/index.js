@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Comment from './components/comment.vue';
+import CommentList from './components/comment-list.vue';
 import {injectService} from './service';
 import {setCustomHost} from './custom-host';
 import './styles/index.less';
@@ -28,6 +28,6 @@ export default function initComment ({
     }
     el.appendChild(container);
     new Vue({
-        render: h => h(Comment)
+        render: h => h(CommentList)
     }).$mount(container);
 }

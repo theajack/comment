@@ -9,7 +9,7 @@
 </template>
 <script>
     import TextArea from './text-area/text-area.vue';
-    import {writeUserInfo, readUserInfo} from '../utils/userInfo';
+    import {writeUserInfo, readUserInfo, AnonymousName} from '../utils/userInfo';
     export default {
         name: 'comment-submit',
         components: {TextArea},
@@ -32,7 +32,7 @@
                     contact: this.contact,
                 });
                 this.$emit('onsubmit', {
-                    name: this.name,
+                    name: this.name || `user_${AnonymousName}`,
                     contact: this.contact,
                     content,
                     success

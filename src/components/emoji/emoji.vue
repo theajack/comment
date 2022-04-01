@@ -4,7 +4,7 @@
 </template>
 <script>
     import {emojiHtml, emojiNames} from './emoji';
-    let emojisDomArray = [];
+    let emojisDomArray = null;
     export default {
         name: 'emoji',
         props: {
@@ -19,10 +19,13 @@
             };
         },
         mounted () {
-            emojisDomArray = Array.prototype.slice.call(this.$refs.emojis.children);
         },
         methods: {
             insertEmoji (e) {
+                if (!emojisDomArray) {
+                    emojisDomArray = Array.prototype.slice.call(this.$refs.emojis.children);
+                    window.ee = emojisDomArray;
+                }
                 let target = e.target;
                 if (target === this.$refs.emojis) {
                     return;

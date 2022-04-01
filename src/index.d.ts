@@ -6,6 +6,15 @@ interface InsertComment {
     }): Promise<boolean>;
 }
 
+interface InsertReply {
+    (data: {
+        name: string;
+        contact: string;
+        content: string;
+        commentId: number;
+    }): Promise<boolean>;
+}
+
 interface GetComment {
     (query: {
         index?: number;
@@ -23,11 +32,13 @@ interface IInitComment {
         services?: {
             insertComment: InsertComment;
             getComment: GetComment;
+            insertReply: InsertReply;
         };
         urlConfig?: {
             host: string;
             get?: string;
             insert?: string;
+            reply?: string;
         };
     }):void;
 }

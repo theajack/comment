@@ -1,9 +1,10 @@
 import axios from 'axios';
 import {showErrorTip, showSuccessTip} from './components/tip/tip';
-import {getBaseURL} from './custom-host';
+import {getBaseURL, getGetCommentUrl, getInsertCommentUrl, getInsertReplyUrl} from './custom-host';
 
 export let services = {
     insertComment,
+    insertReply,
     getComment,
 };
 
@@ -23,7 +24,7 @@ async function insertComment ({
     const res = await axios({
         method: 'post',
         baseURL: getBaseURL(),
-        url: '/api/comment/cnchar',
+        url: getInsertCommentUrl(),
         responseType: 'json',
         data: {
             name,
@@ -39,6 +40,34 @@ async function insertComment ({
     }
     return success;
 }
+
+async function insertReply ({
+    name,
+    contact,
+    content,
+    commentId,
+}) {
+    const res = await axios({
+        method: 'post',
+        baseURL: getBaseURL(),
+        url: getInsertReplyUrl(),
+        responseType: 'json',
+        data: {
+            name,
+            contact,
+            content,
+            commentId
+        }
+    });
+    let success = (res.data.code === 0);
+    if (success) {
+        showSuccessTip('回复评论成功');
+    } else {
+        showErrorTip('回复评论失败');
+    }
+    return success;
+}
+
 async function getComment ({
     index = 1,
     size = 10,
@@ -48,7 +77,7 @@ async function getComment ({
     const res = await axios({
         method: 'get',
         baseURL: getBaseURL(),
-        url: '/api/comment/cnchar',
+        url: getGetCommentUrl(),
         responseType: 'json',
         params: {
             index,

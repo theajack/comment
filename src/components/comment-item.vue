@@ -1,27 +1,35 @@
 <template>
-    <div class='comment-item'>
-        <div>
-            <i class='ei-user comment-item-img'></i>
-            <span class='comment-item-name'>{{comment.name || '匿名用户'}}</span>
-            <span class='comment-item-date'>{{comment.dateStr}}</span>
-        </div>
-        <md-preview class='comment-item-content' ref='preview' :content='comment.content' :autoPreview='true'/>
+    <div>
+        <Comment @onaddreply='onaddreply' :isReply='isReply' :comment='comment'/>
+        <reply-list :reply='comment.reply' v-if='!isReply' />
     </div>
 </template>
 <script>
-    import MdPreview from './md-preview/md-preview.vue';
+    import Comment from './comment.vue';
+    import ReplyList from './reply-list.vue';
+    
     export default {
         name: 'comment-item',
-        components: {MdPreview},
+        components: {Comment, ReplyList},
         props: {
             comment: {
                 required: true,
                 type: Object
+            },
+            isReply: {
+                type: Boolean,
+                default: false,
             }
         },
         data () {
             return {
+                
             };
+        },
+        methods: {
+            onaddreply (data) {
+                this.$emit('onaddreply', data);
+            }
         }
     };
 </script>

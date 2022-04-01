@@ -1,13 +1,13 @@
 {
     "name": "tc-comment",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "description": "A comment component",
     "main": "comment.min.js",
     "unpkg": "comment.min.js",
     "jsdelivr": "comment.min.js",
     "typings": "index.d.ts",
     "bugs": {
-        "url": ""
+        "url": "https://github.com/theajack/comment/issues/new"
     },
     "homepage": "",
     "scripts": {

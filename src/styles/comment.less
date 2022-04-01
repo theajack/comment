@@ -8,6 +8,9 @@
     color:#888;
     .comment-show-more{
         cursor: pointer;
+        &:hover{
+            color: #222;
+        }
     }
 }
 
@@ -28,11 +31,37 @@
             color: #ff9400;;
         }
     }
-    .comment-logo{
-        position: absolute;
-        right: 0;
-        i{
-            margin-left: 5px;
+}
+
+.reply-list{
+    padding-left: 40px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.comment-reply-w{
+    text-align: right;
+    margin: 5px 0;
+    .comment-reply-btn{
+        cursor: pointer;
+        color: #666;
+        &:hover{
+            color: #000;
         }
+    }
+}
+
+
+.comment-logo{
+    text-align: right;
+    color: #888;
+    a{
+        color: #888;
+        cursor: pointer;
+        &:hover{
+            color: #222;
+        }
+    }
+    i{
+        margin-left: 5px;
     }
 }
