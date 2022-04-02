@@ -116,3 +116,28 @@ CommentObject
 - Parameters: name, contact, content, commentId
 - Return: {data: {code: 0}} 0 means success
 - responseType: json
+
+### 3. dataHandler
+
+When using a custom urlConfig, you can modify the request data with dataHandle
+
+Use as follows
+
+````js
+import initComment from 'tc-comment';
+initComment({
+     el: '#app',
+     urlConfig: {
+         host:'www.example.com',
+         get:'/api/comment/get',
+         insert:'/api/comment/insert',
+         reply: '/api/reply/insert'
+     },
+    
+     dataHandler: {
+         get: (data) => {return data},
+         insert: (data) => {return data},
+         reply: (data) => {return data},
+     }
+});
+````

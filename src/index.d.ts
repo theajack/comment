@@ -1,25 +1,30 @@
+interface IComment {
+    name: string;
+    contact: string;
+    content: string;
+}
+
+interface IReply extends IComment {
+    commentId: number;
+}
+
 interface InsertComment {
-    (data: {
-        name: string;
-        contact: string;
-        content: string;
-    }): Promise<boolean>;
+    (data: IComment): Promise<boolean>;
 }
 
 interface InsertReply {
-    (data: {
-        name: string;
-        contact: string;
-        content: string;
-        commentId: number;
-    }): Promise<boolean>;
+    (data: IReply): Promise<boolean>;
+}
+
+interface IGetOption {
+    index?: number;
+    size?: number;
+    all?: boolean;
+    condition?: object;
 }
 
 interface GetComment {
-    (query: {
-        index?: number;
-        size?: number;
-    }): Promise<Array<{
+    (query: IGetOption): Promise<Array<{
         createTime: number;
         name: string;
         content: string;
@@ -40,6 +45,11 @@ interface IInitComment {
             insert?: string;
             reply?: string;
         };
+        dataHandler?: {
+            get?: (data: IGetOption) => any;
+            insert?: (data: IComment) => any;
+            reply?: (data: IReply) => any;
+        }
     }):void;
 }
 

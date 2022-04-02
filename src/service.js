@@ -8,7 +8,17 @@ export let services = {
     getComment,
 };
 
-export function injectService (se) {
+let dataHandler = {
+    get: d => d,
+    insert: d => d,
+    reply: d => d,
+};
+
+export function initDataHandler (handler) {
+    Object.assign(dataHandler, handler);
+}
+
+export function initDataService (se) {
     for (let k in services) {
         if (se[k]) {
             services[k] = se[k];
@@ -26,11 +36,11 @@ async function insertComment ({
         baseURL: getBaseURL(),
         url: getInsertCommentUrl(),
         responseType: 'json',
-        data: {
+        data: dataHandler.insert({
             name,
             contact,
             content
-        }
+        })
     });
     let success = (res.data.code === 0);
     if (success) {
@@ -52,12 +62,12 @@ async function insertReply ({
         baseURL: getBaseURL(),
         url: getInsertReplyUrl(),
         responseType: 'json',
-        data: {
+        data: dataHandler.reply({
             name,
             contact,
             content,
             commentId
-        }
+        })
     });
     let success = (res.data.code === 0);
     if (success) {
@@ -79,12 +89,12 @@ async function getComment ({
         baseURL: getBaseURL(),
         url: getGetCommentUrl(),
         responseType: 'json',
-        params: {
+        params: dataHandler.get({
             index,
             size,
             all,
             condition
-        }
+        })
     });
     let data = res.data;
     let success = (data.code === 0);

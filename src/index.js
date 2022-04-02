@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import CommentList from './components/comment-list.vue';
-import {injectService} from './service';
+import {initDataHandler, initDataService} from './service';
 import {setCustomHost} from './custom-host';
 import './styles/index.less';
 import 'easy-icon/offline';
@@ -8,13 +8,19 @@ import 'easy-icon/offline';
 export default function initComment ({
     el,
     services,
-    urlConfig
+    urlConfig,
+    dataHandler
 }) {
     if (services) {
-        injectService(services);
+        initDataService(services);
     } else if (urlConfig) {
         setCustomHost(urlConfig);
     }
+
+    if (dataHandler) {
+        initDataHandler(dataHandler);
+    }
+
     let container = document.createElement('div');
     if (el instanceof HTMLElement) {
 

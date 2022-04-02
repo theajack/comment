@@ -46,6 +46,8 @@ interface GetComment {
     (query: {
         index?: number;
         size?: number;
+        all?: boolean;
+        condition?: object;
     }): Promise<Array<{
         createTime: number;
         name: string;
@@ -67,7 +69,7 @@ initComment({
         get:'/api/comment/get',
         insert:'/api/comment/insert',
         reply:'/api/reply/insert'
-    }
+    },
 });
 ```
 
@@ -114,3 +116,28 @@ CommentObject
 - 参数: name, contact, content, commentId
 - 返回: {data: {code: 0}} 0表示成功
 - responseType: json
+
+### 3. dataHandler
+
+使用自定义 urlConfig时 可以搭配 dataHandle 修改请求数据
+
+使用方式如下
+
+```js
+import initComment from 'tc-comment';
+initComment({
+    el: '#app',
+    urlConfig: {
+        host:'www.example.com',
+        get:'/api/comment/get',
+        insert:'/api/comment/insert',
+        reply:'/api/reply/insert'
+    },
+    
+    dataHandler: {
+        get: (data) => {return data},
+        insert: (data) => {return data},
+        reply: (data) => {return data},
+    }
+});
+```
