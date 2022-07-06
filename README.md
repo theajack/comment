@@ -1,6 +1,6 @@
 ## [tc-comment](https://github.com/theajack/tc-comment)
 
-**[中文](https://github.com/theajack/comment/blob/master/README.cn.md) | [Use Case](https://theajack.github.io/message-board/?app=tc_comment/common)**
+**[中文](https://github.com/theajack/comment/blob/master/README.cn.md) | [Use Case](https://theajack.github.io/message-board/?app=tc-comment)**
 
 A comment component that supports markdowm and emoji, without any configuration, no need to apply for any account, it can be used immediately
 

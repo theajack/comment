@@ -1,6 +1,6 @@
 ## [tc-comment](https://github.com/theajack/tc-comment)
 
-**[English](https://github.com/theajack/comment) | [使用案例](https://theajack.github.io/message-board/?app=tc_comment/common)**
+**[English](https://github.com/theajack/comment) | [使用案例](https://theajack.github.io/message-board/?app=tc-comment)**
 
 一个支持markdowm和emoji评论组件，无需任何配置，无需申请任何账号，即引即用
 
