@@ -2,6 +2,16 @@ import axios from 'axios';
 import {showErrorTip, showSuccessTip} from './components/tip/tip';
 import {getBaseURL, getGetCommentUrl, getInsertCommentUrl, getInsertReplyUrl} from './custom-host';
 
+let appName = '';
+
+export function setAppName (name) {
+    appName = name;
+}
+
+export function buildAppName () {
+    return `tc_comment/${appName || 'common'}`;
+}
+
 export let services = {
     insertComment,
     insertReply,
@@ -39,7 +49,8 @@ async function insertComment ({
         data: dataHandler.insert({
             name,
             contact,
-            content
+            content,
+            app: buildAppName()
         })
     });
     let success = (res.data.code === 0);
@@ -66,7 +77,8 @@ async function insertReply ({
             name,
             contact,
             content,
-            commentId
+            commentId,
+            app: buildAppName()
         })
     });
     let success = (res.data.code === 0);
@@ -93,7 +105,8 @@ async function getComment ({
             index,
             size,
             all,
-            condition
+            condition,
+            app: buildAppName()
         })
     });
     let data = res.data;

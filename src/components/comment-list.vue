@@ -1,8 +1,8 @@
 <template>
-    <div class='comment-w'>
+    <div :data-theme='theme' class='comment-w'>
         <comment-submit @onsubmit='onsubmit'/>
         <div class='comment-logo comment' >
-            Power by <i class='ei-comments-alt'></i> <a target='view_window' href='https://github.com/theajack/comment'>tc-comment</a>
+            Powered by <i class='ei-comments-alt'></i> <a target='view_window' href='https://github.com/theajack/comment'>tc-comment</a>
         </div>
         <div class='comment-list' v-for='(comment, index) in list' :key='index'>
             <comment-item @onaddreply='onAddReply(comment, $event)' :comment='comment' />
@@ -29,8 +29,15 @@
     import {services} from '../service';
     import {nowDateTimeStr, timeToTimeStr} from '../utils/time';
     import {buildRandomId} from '../utils/util';
+    import {getTheme} from '../dark-theme';
     export default {
         name: 'commen-list',
+        props: {
+            theme: {
+                type: String,
+                default: getTheme()
+            }
+        },
         components: {CommentItem, CommentSubmit},
         data () {
             return {

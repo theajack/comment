@@ -31,28 +31,37 @@ interface GetComment {
     }>>;
 }
 
-interface IInitComment {
-    (options:{
-        el?: HTMLElement | string;
-        services?: {
-            insertComment: InsertComment;
-            getComment: GetComment;
-            insertReply: InsertReply;
-        };
-        urlConfig?: {
-            host: string;
-            get?: string;
-            insert?: string;
-            reply?: string;
-        };
-        dataHandler?: {
-            get?: (data: IGetOption) => any;
-            insert?: (data: IComment) => any;
-            reply?: (data: IReply) => any;
-        }
-    }):void;
+interface IBaseConfig {
+    appName: string;
+    services?: {
+        insertComment: InsertComment;
+        getComment: GetComment;
+        insertReply: InsertReply;
+    };
+    urlConfig?: {
+        host: string;
+        get?: string;
+        insert?: string;
+        reply?: string;
+    };
+    dataHandler?: {
+        get?: (data: IGetOption) => any;
+        insert?: (data: IComment) => any;
+        reply?: (data: IReply) => any;
+    };
+    theme?: 'dark' | 'light';
+    darkSelector?: string;
 }
 
-let initComment: IInitComment;
+interface IComment { // vue component
+    init(options: IBaseConfig): void;
+    [prop: string]: any;
+};
 
-export default initComment;
+export function initComment(options: {
+    el?: HTMLElement | string;
+} & IBaseConfig): {
+    setTheme(v: 'dark' | 'light'): void;
+};
+
+export const Comment: IComment

@@ -1,10 +1,10 @@
 {
     "name": "tc-comment",
-    "version": "0.0.13",
-    "description": "A comment component",
-    "main": "comment.min.js",
-    "unpkg": "comment.min.js",
-    "jsdelivr": "comment.min.js",
+    "version": "0.0.14",
+    "description": "A comment component that supports markdowm and emoji, without any configuration, no need to apply for any account, it can be used immediately",
+    "main": "tc-comment.min.js",
+    "unpkg": "tc-comment.min.js",
+    "jsdelivr": "tc-comment.min.js",
     "typings": "index.d.ts",
     "bugs": {
         "url": "https://github.com/theajack/comment/issues/new"
@@ -22,7 +22,7 @@
         "type": "git",
         "url": ""
     },
-    "keywords": [],
+    "keywords": ["comment component", "emoji", "markdowm", "no account"],
     "license": "MIT",
     "devDependencies": {
         "@babel/core": "^7.6.4",

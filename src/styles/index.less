@@ -16,3 +16,26 @@
 @import './text-area.less';
 @import './md-preview.less';
 @import './emoji.less';
+
+[data-theme=dark] {
+    .comment-editor, 
+    .comment-s-input, 
+    .comment-list .comment-item .comment-item-content {
+        background-color: #191919;
+        color: #fff;
+    }
+    .comment-textarea-w .comment-f-w .comment-f-b:hover, 
+    .comment-textarea-w .comment-f-w .comment-f-sb:hover,
+    .comment-logo a:hover,
+    .comment-reply-w .comment-reply-btn:hover,
+    .comment-info .comment-show-more:hover{
+        color: #fff;
+    }
+    .comment-submit,
+    .comment-submit .comment-s-header .comment-s-input{
+        border-color: #444;
+    }
+    .comment-list .comment-item .comment-item-name{
+        color: #aaa;
+    }
+}

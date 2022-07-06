@@ -7,7 +7,7 @@
                  v-show='showAll || index === 0'/>
         <div class='comment-info' v-show='reply.length>1'>
             <div class='comment-show-more' @click='showAll = !showAll'>
-                {{showAll?'收起':'查看'}}全部
+                {{showAll?'收起':'查看'}}全部回复
             </div>
         </div>
     </div>

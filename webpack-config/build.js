@@ -10,11 +10,10 @@ module.exports = {
     entry: ['@babel/polyfill', path.resolve('./', 'src/index.js')],
     output: {
         path: path.resolve('./', 'npm'),
-        filename: 'comment.min.js',
-        library: 'comment',
+        filename: 'tc-comment.min.js',
+        library: 'TComment',
         libraryTarget: 'umd',
-        umdNamedDefine: true,
-        globalObject: 'this'
+        globalObject: 'this',
     },
     module: {
         rules: [{
