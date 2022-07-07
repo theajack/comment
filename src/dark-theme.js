@@ -19,6 +19,7 @@ export function setThemeSelector (theme, selector) {
         style.innerText = /* css*/`
 ${selector} .comment-editor, 
 ${selector} .comment-s-input, 
+${selector} .comment-preview, 
 ${selector} .comment-w .comment-list .comment-item .comment-item-content {
     background-color: #191919;
     color: #fff;
@@ -36,6 +37,13 @@ ${selector} .comment-w .comment-submit .comment-s-header .comment-s-input{
 }
 ${selector} .comment-w .comment-list .comment-item .comment-item-name{
     color: #aaa;
+}
+${selector} .comment-editor:focus {
+    background-color: #111;
+}
+${selector} .comment-w .comment-submit .comment-s-header .comment-s-input:focus{
+    background-color: #111;
+    border-bottom: 1px dashed #ccc;
 }`;
         document.head.appendChild(style);
     }

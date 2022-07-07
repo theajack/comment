@@ -3,8 +3,11 @@ import CommentList from './components/comment-list.vue';
 import {initDataHandler, initDataService, setAppName} from './service';
 import {setCustomHost} from './custom-host';
 import {setThemeSelector} from './dark-theme';
+import _version from './version';
 import './styles/index.less';
 import 'easy-icon/offline';
+
+export const version = _version;
 
 export const Comment = CommentList;
 

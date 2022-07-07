@@ -4,6 +4,7 @@
         <div class='comment-f-w'>
             <i class='ei-code comment-f-b' title='插入代码片段' @click='insertCode'></i>
             <i class='ei-link comment-f-b' title='插入链接' @click='insertLink'></i>
+            <i class='ei-file-image comment-f-b' title='插入图片链接' @click='insertImage'></i>
             <i :class='`ei-${showEmoji?"meh":"smile"} comment-f-b`' title='插入表情' @click='toggleEmoji'></i>
             <i :class='`ei-eye-${showPreview?"close":"open"} comment-f-b`' title='预览markdown' @click='togglePreview'></i>
             <span class='comment-f-sb' @click='submit'>
@@ -44,6 +45,9 @@
             },
             insertLink () {
                 this.$refs.editor.insertText('[]()', 1);
+            },
+            insertImage () {
+                this.$refs.editor.insertText('![alt]()', 7);
             },
             insertEmoji (text) {
                 this.$refs.editor.insertText(text, text.length);

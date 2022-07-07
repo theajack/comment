@@ -58,6 +58,8 @@ interface IComment { // vue component
     [prop: string]: any;
 };
 
+export const version: string;
+
 export function initComment(options: {
     el?: HTMLElement | string;
 } & IBaseConfig): {

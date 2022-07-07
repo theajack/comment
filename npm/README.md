@@ -1,6 +1,6 @@
 ## [tc-comment](https://github.com/theajack/tc-comment)
 
-**[中文](https://github.com/theajack/comment/blob/master/README.cn.md) | [Use Case](https://theajack.github.io/message-board/?app=tc_comment/common)**
+**[中文](https://github.com/theajack/comment/blob/master/README.cn.md) | [Use Case](https://theajack.github.io/message-board/?app=tc-comment)**
 
 A comment component that supports markdowm and emoji, without any configuration, no need to apply for any account, it can be used immediately
 
@@ -9,11 +9,11 @@ A comment component that supports markdowm and emoji, without any configuration,
 1. One line of code introduction without any configuration
 2. No need to apply for any account, just use it
 3. Support markdowm and emoji comment components
-4. Support implementation preview
+4. Support real-time preview
 5. Support insert link of code message
 6. Support dark mode, adapt to the original dark mode of the website
 7. Support custom services and url
-8. todo: support for inserting pictures
+8. Support for inserting pictures
 
 ### 1. Quick use
 

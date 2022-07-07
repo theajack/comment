@@ -1,9 +1,15 @@
-// import {initComment} from '../src/index';
-import {initComment} from '../npm/';
+// import {initComment, version} from '../src/index';
+import {initComment, version} from '../npm/';
+
+console.log(version);
+
+document.body.style.backgroundColor = '#222';
+
 const data = {
     // el: '#app',
     appName: 'aa/bb',
-    // theme: 'dark',
+    theme: 'dark',
+    // darkSelector: 'body'
 };
 window.d = data;
 const {setTheme} = initComment(data);

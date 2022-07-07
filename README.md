@@ -9,11 +9,11 @@ A comment component that supports markdowm and emoji, without any configuration,
 1. One line of code introduction without any configuration
 2. No need to apply for any account, just use it
 3. Support markdowm and emoji comment components
-4. Support implementation preview
+4. Support real-time preview
 5. Support insert link of code message
 6. Support dark mode, adapt to the original dark mode of the website
 7. Support custom services and url
-8. todo: support for inserting pictures
+8. Support for inserting pictures
 
 ### 1. Quick use
 

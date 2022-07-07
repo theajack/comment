@@ -1,9 +1,16 @@
 const path = require('path');
+const fs = require('fs');
 require('../helper/copy-to-npm');
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 分离css
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+
+fs.writeFileSync(
+    path.resolve(__dirname, '../src/version.js'),
+    `export default '${require('../package.json').version}';`,
+    'utf8'
+);
 
 module.exports = {
     mode: 'production',

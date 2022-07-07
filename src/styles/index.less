@@ -20,6 +20,7 @@
 [data-theme=dark] {
     .comment-editor, 
     .comment-s-input, 
+    .comment-preview,
     .comment-list .comment-item .comment-item-content {
         background-color: #191919;
         color: #fff;
@@ -37,5 +38,12 @@
     }
     .comment-list .comment-item .comment-item-name{
         color: #aaa;
+    }
+    .comment-editor:focus {
+        background-color: #111;
+    }
+    .comment-submit .comment-s-header .comment-s-input:focus{
+        background-color: #111;
+        border-bottom: 1px dashed #ccc;
     }
 }
