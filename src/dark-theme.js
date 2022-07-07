@@ -44,6 +44,9 @@ ${selector} .comment-editor:focus {
 ${selector} .comment-w .comment-submit .comment-s-header .comment-s-input:focus{
     background-color: #111;
     border-bottom: 1px dashed #ccc;
+}
+${selector} .comment-preview code {
+    background-color: #333!important;
 }`;
         document.head.appendChild(style);
     }

@@ -1,5 +1,5 @@
-// import {initComment, version} from '../src/index';
-import {initComment, version} from '../npm/';
+import {initComment, version} from '../src/index';
+// import {initComment, version} from '../npm/';
 
 console.log(version);
 
