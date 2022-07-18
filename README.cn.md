@@ -1,4 +1,4 @@
-## [tc-comment](https://github.com/theajack/tc-comment)
+## [tc-comment](https://github.com/theajack/comment)
 
 **[English](https://github.com/theajack/comment) | [使用案例](https://theajack.github.io/message-board/?app=tc-comment)**
 
