@@ -14,6 +14,8 @@ A comment component that supports markdowm and emoji, without any configuration,
 6. Support dark mode, adapt to the original dark mode of the website
 7. Support custom services and url
 8. Support for inserting pictures
+9. Support configuring dark mode
+10. Support configuration in Chinese and English
 
 ### 1. Quick use
 
@@ -57,6 +59,7 @@ initComment({
     el?: HTMLElement | string; // Comment.init passed this parameter is invalid
     theme?: 'dark' | 'light';
     darkSelector?: string;
+    lang?: 'cn'|'en';
     services?: {
         insertComment: InsertComment;
         getComment: GetComment;

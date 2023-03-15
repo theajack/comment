@@ -1,4 +1,4 @@
-## [tc-comment](https://github.com/theajack/tc-comment)
+## [tc-comment](https://github.com/theajack/comment)
 
 **[中文](https://github.com/theajack/comment/blob/master/README.cn.md) | [Use Case](https://theajack.github.io/message-board/?app=tc-comment)**
 

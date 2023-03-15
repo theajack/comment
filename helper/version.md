@@ -1,7 +1,12 @@
-## 1.0.1 doing
+<!--
+ * @Author: chenzhongsheng
+ * @Date: 2023-02-18 00:52:32
+ * @Description: Coding something
+-->
+## 1.0.1
 
-1. dark code background - done
-
+1. dark code background
+2. 支持配置中英文
 
 ## 1.0.0
 

@@ -1,9 +1,14 @@
+<!--
+ * @Author: chenzhongsheng
+ * @Date: 2023-02-18 00:52:32
+ * @Description: Coding something
+-->
 <template>
     <textarea
         class='comment-editor'
         @input='oninput'
         ref='textAraea'
-        placeholder='快来留言吧，支持markdown哦~'
+        :placeholder='lang("textarea")'
         :value='content' />
 </template>
 <script>

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {showErrorTip, showSuccessTip} from './components/tip/tip';
 import {getBaseURL, getGetCommentUrl, getInsertCommentUrl, getInsertReplyUrl} from './custom-host';
+import {getText} from './lang';
 
 let appName = '';
 
@@ -55,9 +56,9 @@ async function insertComment ({
     });
     let success = (res.data.code === 0);
     if (success) {
-        showSuccessTip('提交评论成功');
+        showSuccessTip(getText('cSuccess'));
     } else {
-        showErrorTip('提交评论失败');
+        showErrorTip(getText('cFail'));
     }
     return success;
 }
@@ -83,9 +84,9 @@ async function insertReply ({
     });
     let success = (res.data.code === 0);
     if (success) {
-        showSuccessTip('回复评论成功');
+        showSuccessTip(getText('success'));
     } else {
-        showErrorTip('回复评论失败');
+        showErrorTip(getText('fail'));
     }
     return success;
 }
@@ -112,7 +113,7 @@ async function getComment ({
     let data = res.data;
     let success = (data.code === 0);
     if (!success) {
-        showErrorTip('拉去列表失败');
+        showErrorTip(getText('lFail'));
     }
     return success ? data.data : [];
 }

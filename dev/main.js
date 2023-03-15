@@ -1,20 +1,41 @@
+/*
+ * @Author: chenzhongsheng
+ * @Date: 2023-02-18 00:52:32
+ * @Description: Coding something
+ */
 import {initComment, version} from '../src/index';
 // import {initComment, version} from '../npm/';
+import box from 'webapp-box';
+
+async function add () {
+    const container = await box.add();
+    const data = {
+        el: container,
+        appName: 'tc_comment_dev',
+        theme: 'dark',
+        lang: 'en',
+        // darkSelector: 'body'
+    };
+    container.style.backgroundColor = '#222';
+    initComment(data);
+}
+
+window.add = add;
 
 console.log(version);
 
 document.body.style.backgroundColor = '#222';
 
-const data = {
-    // el: '#app',
-    appName: 'aa/bb',
-    theme: 'dark',
-    // darkSelector: 'body'
-};
-window.d = data;
-const {setTheme} = initComment(data);
+// const data = {
+//     // el: '#app',
+//     appName: 'aa/bb',
+//     theme: 'dark',
+//     // darkSelector: 'body'
+// };
+// window.d = data;
+// const {setTheme} = initComment(data);
 
-window.setTheme = setTheme;
+// window.setTheme = setTheme;
 
 
 // import Vue from 'vue';

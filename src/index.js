@@ -1,3 +1,8 @@
+/*
+ * @Author: chenzhongsheng
+ * @Date: 2023-02-18 00:52:32
+ * @Description: Coding something
+ */
 import Vue from 'vue';
 import CommentList from './components/comment-list.vue';
 import {initDataHandler, initDataService, setAppName} from './service';
@@ -6,6 +11,9 @@ import {setThemeSelector} from './dark-theme';
 import _version from './version';
 import './styles/index.less';
 import 'easy-icon/offline';
+import {mixin, setLang} from './lang';
+
+Vue.mixin(mixin);
 
 export const version = _version;
 
@@ -44,7 +52,9 @@ export function initComment ({
     dataHandler,
     theme = 'light',
     darkSelector = '',
+    lang = 'cn',
 }) {
+    setLang(lang);
     initConfig({appName, services, urlConfig, dataHandler, darkSelector});
 
     let container = document.createElement('div');

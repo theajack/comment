@@ -9,16 +9,16 @@
         </div>
         <div class='comment-info'>
             <div v-if='status === "loading"' class='comment-loading' @click='showMore'>
-                正在加载 <i class='ei-spinner-snake ei-spin'></i>
+                {{lang('正在加载', 'Loading')}} <i class='ei-spinner-snake ei-spin'></i>
             </div>
             <div v-else-if='status === "more"' class='comment-show-more' @click='showMore'>
-                查看更多
+                {{lang('查看更多', 'View More')}}
             </div>
             <div v-else-if='status === "nomore"' class='comment-no-more'>
-                已经到底了
+                {{lang('已经到底了', 'Already to the end')}}
             </div>
             <div v-else class='comment-no-more'>
-                暂无评论-快来成为第一个人吧~
+                {{lang('暂无评论-快来成为第一个人吧~', 'No comments - come and be the first person~')}}
             </div>
         </div>
     </div>

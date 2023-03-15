@@ -2,8 +2,8 @@
     <div>
         <div class='comment-reply-w' @click='onclick'>
             <span class='comment-reply-btn'>
-                <i class='ei-comment-alt' title='回复评论'></i>
-                <span>回复</span>
+                <i class='ei-comment-alt' :title="lang('回复评论', 'Reply')"></i>
+                <span>{{lang('回复', 'Reply')}}</span>
             </span>
         </div>
         <comment-submit v-show='showReply' @onsubmit='onsubmit'/>

@@ -1,8 +1,13 @@
+<!--
+ * @Author: chenzhongsheng
+ * @Date: 2023-02-18 00:52:32
+ * @Description: Coding something
+-->
 <template>
     <div class='comment-submit'>
         <div class='comment-s-header'>
-            <input class='comment-s-input' type='text' placeholder='称呼' v-model='name'>
-            <input class='comment-s-input' type='text' placeholder='联系方式' v-model='contact'>
+            <input class='comment-s-input' type='text' :placeholder='lang("nickname")' v-model='name'>
+            <input class='comment-s-input' type='text' :placeholder='lang("contact")' v-model='contact'>
         </div>
         <text-area @onsubmit='onsubmit'></text-area>
     </div>

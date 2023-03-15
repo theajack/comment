@@ -1,15 +1,20 @@
+<!--
+ * @Author: chenzhongsheng
+ * @Date: 2023-02-18 00:52:32
+ * @Description: Coding something
+-->
 <template>
     <div class='comment-textarea-w'>
         <editor :content.sync='content' ref='editor'/>
         <div class='comment-f-w'>
-            <i class='ei-code comment-f-b' title='插入代码片段' @click='insertCode'></i>
-            <i class='ei-link comment-f-b' title='插入链接' @click='insertLink'></i>
-            <i class='ei-file-image comment-f-b' title='插入图片链接' @click='insertImage'></i>
-            <i :class='`ei-${showEmoji?"meh":"smile"} comment-f-b`' title='插入表情' @click='toggleEmoji'></i>
-            <i :class='`ei-eye-${showPreview?"close":"open"} comment-f-b`' title='预览markdown' @click='togglePreview'></i>
+            <i class='ei-code comment-f-b' :title='lang("code")' @click='insertCode'></i>
+            <i class='ei-link comment-f-b' :title='lang("url")' @click='insertLink'></i>
+            <i class='ei-file-image comment-f-b' :title='lang("img")' @click='insertImage'></i>
+            <i :class='`ei-${showEmoji?"meh":"smile"} comment-f-b`' :title='lang("emoji")' @click='toggleEmoji'></i>
+            <i :class='`ei-eye-${showPreview?"close":"open"} comment-f-b`' :title='lang("md")' @click='togglePreview'></i>
             <span class='comment-f-sb' @click='submit'>
-                <i class='ei-comment-alt' title='提交评论'></i>
-                <span>提交</span>
+                <i class='ei-comment-alt' :title='lang("comment")'></i>
+                <span>{{lang('submit')}}</span>
             </span>
         </div>
         <emoji :visible='showEmoji' @insertEmoji='insertEmoji' />

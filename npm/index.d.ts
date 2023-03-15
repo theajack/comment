@@ -1,3 +1,8 @@
+/*
+ * @Author: chenzhongsheng
+ * @Date: 2023-02-18 00:52:32
+ * @Description: Coding something
+ */
 interface IComment {
     name: string;
     contact: string;
@@ -51,6 +56,7 @@ interface IBaseConfig {
     };
     theme?: 'dark' | 'light';
     darkSelector?: string;
+    lang?: 'cn' | 'en';
 }
 
 interface IComment { // vue component

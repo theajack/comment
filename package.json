@@ -1,6 +1,6 @@
 {
     "name": "tc-comment",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A comment component that supports markdowm and emoji, without any configuration, no need to apply for any account, it can be used immediately",
     "main": "tc-comment.min.js",
     "unpkg": "tc-comment.min.js",
@@ -22,7 +22,12 @@
         "type": "git",
         "url": ""
     },
-    "keywords": ["comment component", "emoji", "markdowm", "no account"],
+    "keywords": [
+        "comment component",
+        "emoji",
+        "markdowm",
+        "no account"
+    ],
     "license": "MIT",
     "devDependencies": {
         "@babel/core": "^7.6.4",
@@ -38,7 +43,6 @@
         "css-loader": "^5.0.1",
         "easy-icon": "^1.0.8",
         "element-ui": "^2.14.1",
-        "emoji-js": "^3.5.0",
         "eslint": "^6.5.1",
         "eslint-config-standard": "^14.1.0",
         "eslint-loader": "^3.0.2",
@@ -68,12 +72,14 @@
         "vue-router": "^3.4.9",
         "vue-template-compiler": "^2.6.12",
         "vuex": "^3.6.0",
+        "webapp-box": "0.0.5",
         "webpack": "^4.41.2",
         "webpack-cli": "^3.3.9",
         "webpack-dev-server": "^3.8.2"
     },
     "dependencies": {
-        "axios": "^0.21.1"
+        "axios": "^0.21.1",
+        "emoji-js": "3.5.0"
     },
     "husky": {
         "hooks": {
