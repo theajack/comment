@@ -25,6 +25,10 @@ window.add = add;
 console.log(version);
 
 document.body.style.backgroundColor = '#222';
+const button = document.createElement('button');
+button.innerText = 'add';
+button.onclick = add;
+document.body.appendChild(button);
 
 // const data = {
 //     // el: '#app',
